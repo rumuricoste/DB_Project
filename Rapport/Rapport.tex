@@ -68,12 +68,33 @@
 			\subsubsection*{Contraintes d'integrité}
 				\begin{itemize}
 					\item L'année de fin d'une serie doit etre toutjout posterior a la date de debut.
-					\item 
+					\item Deux episodes d'une meme season d'une meme serie doivent obligatoirement avoir un numero d'episode different.
 				\end{itemize}
 
 
 
+		\pagebreak
 		\subsection*{Traduction Relationel}
+
+			\textbf{Film}(\underline{Title}, Language, Country, Year, Score, Actors, Directors, Authors, Genres)\par
+				\hspace{4ex} Actors reference Person.???\par
+				\hspace{4ex} Directors reference Person.???\par
+				\hspace{4ex} Authors reference Person.???\\\par
+
+			\textbf{Serie}(\underline{Title}, Language, Country, Year, Score, Actors, Directors, Authors, EndYear, Episodes)\par
+				\hspace{4ex} Actors reference Person.???\par
+				\hspace{4ex} Directors reference Person.???\par
+				\hspace{4ex} Authors reference Person.???\par
+				\hspace{4ex} Episodes reference Episodes.???\\\par
+
+			\textbf{Episode}(\underline{Title}, SeasonNumber, EpisodeNumber)\\\par
+
+			\textbf{Person}(FirstName, LastName, Gender)\\\par
+
+			\textbf{Author}(\textit{FilmTitle, PERSON\_KEY}, Role)\par
+				\hspace{4ex} FilmTitle reference Film.Title\par
+				\hspace{4ex} PERSON\_KEY reference Person.???\\\par
+
 
 			\subsubsection*{Contraintes d'integrité}
 				\begin{itemize}
@@ -84,7 +105,7 @@
 
 
 		\subsection*{Hypothèses et Justifications}
-			Dans l'enoncé il est precisé que chaque acteur a un nom, prenom et genre. Rien est dit a propos des directeurs ni des autheurs. On a supposé qu'ils ont aussi un nom, premon et genre.
+			Dans l'enoncé il est precisé que chaque acteur a un nom, prenom et genre. Rien est dit a propos des directeurs ni des autheurs. On a supposé qu'ils ont aussi un nom, premon et genre.\par
 			Une personne peut etre autheur, directeur et acteur de pluisieurs filmes et une personne peut avoir pluisieurs roles (ex: author et actor) dans un meme filme.\par
 
 
